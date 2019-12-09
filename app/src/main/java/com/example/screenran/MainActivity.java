@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,19 +20,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Init();
 
-
     }
 
     private void Init() {
-        Button btn = findViewById(R.id.btn1);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button btn1 = findViewById(R.id.btn1);
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView txt1 = findViewById(R.id.textView2);
-                txt1.setText(R.string.txt_info);
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
+                int a = 0;
+                int b = 100;
+                int random_number = a + (int) (Math.random() * b);
+                String str = "http://myfile.org/" + String.valueOf(random_number);
+                TextView txt1 = findViewById(R.id.textView2);
+                txt1.setText(str);
+
             }
         });
+        Button btn2 = findViewById(R.id.btn2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                finish();
+            }
+        });
+
     }
+
 }
