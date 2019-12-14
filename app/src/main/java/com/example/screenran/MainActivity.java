@@ -19,6 +19,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Init();
+        int a = 0;
+        int b = 100;
+        int random_number = a + (int) (Math.random() * b);
+        String str = "http://myfile.org/" + String.valueOf(random_number);
+        TextView txt1 = findViewById(R.id.textView2);
+        txt1.setText(str);
 
     }
 
@@ -29,12 +35,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
-                int a = 0;
-                int b = 100;
-                int random_number = a + (int) (Math.random() * b);
-                String str = "http://myfile.org/" + String.valueOf(random_number);
-                TextView txt1 = findViewById(R.id.textView2);
-                txt1.setText(str);
 
             }
         });
